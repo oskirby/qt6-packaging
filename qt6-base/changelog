@@ -1,0 +1,98 @@
+qt6-base (6.2.2+dfsg-3) experimental; urgency=medium
+
+  * Team upload.
+  * Backport/add patches for Hurd support:
+    - backport upstream commit 099e0fff61f080e2d628c8f472df78f6fd2f5234 to
+      support Hurd in the CMake build system; patch
+      upstream_CMake-add-support-for-GNU-Hurd.patch
+    - backport upstream commit 13a11f1c3526112eaf28943185fadc14523fd496 to
+      fix an unconditional PIPE_BUF usage; patch
+      upstream_QProcess-Unix-fallback-on-_POSIX_PIPE_BUF-w-missing-.patch
+    - backport upstream commit bf2fe41616c54712f78ea0ffd173f3614eb20190 to
+      limit a Linux-only code block in the QStorageInfo implementation; patch
+      upstream_QStorageInfo-limit-Linux-only-code-with-Q_OS_LINUX.patch
+    - borrow path_max.diff from qt-base 5 to avoid an unconditional PATH_MAX
+      usage
+  * Update install files for few more Linux-only bits.
+  * Simplify a lot the handling of private symbols in symbols files: since they
+    are tagged as Qt_6_PRIVATE_API, use a single (symver) directive to match
+    all of them at once; there is no minimum version set, as there is already
+    an alternate dependency that sets a strict requirement on qt6-base-abi.
+  * Update symbols files from the logs of buildds, and from the log of a manual
+    hurd-i386 build (marking linux-only and hurd-i386 symbols).
+
+ -- Pino Toscano <pino@debian.org>  Sat, 29 Jan 2022 09:32:23 +0100
+
+qt6-base (6.2.2+dfsg-2) experimental; urgency=medium
+
+  [ Pino Toscano ]
+  * Update symbols files from the logs of buildds.
+
+  [ Patrick Franz ]
+  * Remove copyright-script as it is now in the pkg-kde-tools package.
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Add a qmake6 symlink to usr/bin.
+
+ -- Patrick Franz <deltaone@debian.org>  Fri, 31 Dec 2021 18:44:53 +0100
+
+qt6-base (6.2.2+dfsg-1) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Update ABI to 6.2.2.
+  * Update installed files.
+  * Update lintian-overrides.
+  * Update symbols.
+  * Remove unneeded licenses from d/copyright.
+
+ -- Patrick Franz <deltaone@debian.org>  Wed, 01 Dec 2021 23:55:33 +0100
+
+qt6-base (6.2.1+dfsg-5) experimental; urgency=medium
+
+  * Team upload.
+  * Update symbols files from the logs of buildds; do manual fixes for vulkan
+    symbols in qt6gui6 for 32bit vs 64bit versions, and for CPU-specific ones.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 21 Nov 2021 19:58:51 +0100
+
+qt6-base (6.2.1+dfsg-4) experimental; urgency=medium
+
+  * Team upload.
+  * Update install files for Linux-only bits.
+  * Update libqt6test6.symbols for 32bit architectures.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 20 Nov 2021 16:53:32 +0100
+
+qt6-base (6.2.1+dfsg-3) experimental; urgency=medium
+
+  * Team upload.
+  * Update symbols files from the logs of buildds.
+  * Restrict the liblttng-ust-dev build dependency as linux-any, as it is
+    specific for Linux.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 20 Nov 2021 12:29:08 +0100
+
+qt6-base (6.2.1+dfsg-2) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * Change path for libexec.
+
+ -- Patrick Franz <deltaone@debian.org>  Sat, 20 Nov 2021 03:07:02 +0100
+
+qt6-base (6.2.1+dfsg-1) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * Tighten dependencies.
+  * New upstream release (6.2.1).
+  * Update ABI to 6.2.1.
+  * Update installed files.
+  * Update symbols.
+
+ -- Patrick Franz <deltaone@debian.org>  Fri, 05 Nov 2021 15:51:24 +0100
+
+qt6-base (6.2.0+dfsg-1) experimental; urgency=medium
+
+  * Initial release (Closes: #994478).
+
+ -- Patrick Franz <deltaone@debian.org>  Fri, 17 Sep 2021 02:34:49 +0200
