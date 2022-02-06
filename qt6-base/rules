@@ -4,7 +4,7 @@
 # Use already defined DEB_HOST_* variables.
 include /usr/share/dpkg/architecture.mk
 
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
 ifneq (,$(filter libqt6sql6-ibase,$(shell dh_listpackages)))
         extra_cmake_args += -DFEATURE_sql_ibase=ON
@@ -83,3 +83,8 @@ execute_after_dh_auto_install:
 
 override_dh_makeshlibs:
 	dh_makeshlibs -XlibQt6EglFSDeviceIntegration -XlibQt6EglFsKmsGbmSupport -XlibQt6EglFsKmsSupport -XlibQt6XcbQpa
+
+ifeq ($(DEB_HOST_ARCH_CPU),arm64)
+override_dh_dwz:
+endif
+
