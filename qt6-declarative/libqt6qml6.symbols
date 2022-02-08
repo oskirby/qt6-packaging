@@ -1808,7 +1808,7 @@ libQt6Qml.so.6 libqt6qml6 #MINVER#
  _ZN3QV46Object26virtualResolveLookupSetterEPS0_PNS_15ExecutionEngineEPNS_6LookupERKNS_5ValueE@Base 6.2.0
  _ZN3QV46Object34defineReadonlyConfigurablePropertyEPNS_14StringOrSymbolERKNS_5ValueE@Base 6.2.0
  _ZN3QV46Object34defineReadonlyConfigurablePropertyERK7QStringRKNS_5ValueE@Base 6.2.0
- _ZN3QV46Object8arraySetEjPKNS_8PropertyENS_18PropertyAttributesE@Base 6.2.0
+ (optional|arch=!ppc64el)_ZN3QV46Object8arraySetEjPKNS_8PropertyENS_18PropertyAttributesE@Base 6.2.0
  (arch=!amd64 !arm64 !ppc64el !sh4)_ZN3QV46Object8arraySetEjRKNS_5ValueE@Base 6.2.0
  _ZN3QV46Object8putValueEjNS_18PropertyAttributesERKNS_5ValueE@Base 6.2.0
  _ZN3QV46Object9push_backERKNS_5ValueE@Base 6.2.0
@@ -3099,7 +3099,7 @@ libQt6Qml.so.6 libqt6qml6 #MINVER#
  _ZNK3QV45Value16toQStringNoThrowEv@Base 6.2.0
  _ZNK3QV45Value8toUInt16Ev@Base 6.2.0
  _ZNK3QV45Value9sameValueES0_@Base 6.2.0
- (arch=ia64 mips64el riscv64)_ZNK3QV45Value9toIntegerEv@Base 6.2.0
+ (arch=ia64 mips64el ppc64el riscv64)_ZNK3QV45Value9toIntegerEv@Base 6.2.0
  _ZNK3QV45Value9toQStringEPb@Base 6.2.0
  _ZNK3QV45Value9toQStringEv@Base 6.2.0
  _ZNK3QV46Module13resolveExportENS_11PropertyKeyE@Base 6.2.0
@@ -3353,19 +3353,21 @@ libQt6Qml.so.6 libqt6qml6 #MINVER#
  (optional=templinst)_ZNSt6vectorIPKN3QV44Heap6StringESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_@Base 6.2.0
  (optional=templinst)_ZNSt6vectorISt4pairIPKciESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_@Base 6.2.0
  (optional=templinst|arch-bits=32)_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb@Base 6.2.1
- (optional=templinst)_ZNSt6vectorIbSaIbEE8_M_eraseESt13_Bit_iterator@Base 6.2.0
+ (optional=templinst|arch=!ppc64el)_ZNSt6vectorIbSaIbEE8_M_eraseESt13_Bit_iterator@Base 6.2.0
  (optional=templinst|arch=sh4)_ZNSt6vectorIbSaIbEE8_M_eraseESt13_Bit_iteratorS2_@Base 6.2.1
  (optional=templinst|arch=amd64 arm64 armhf i386|subst)_ZNSt6vectorIcSaIcEE17_M_default_appendE{size_t}@Base 6.2.0
  (optional=templinst|arch=amd64 arm64 armhf i386)_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_@Base 6.2.0
  (optional=templinst)_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_@Base 6.2.0
  (optional=templinst)_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_@Base 6.2.0
  (optional=templinst)_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_@Base 6.2.0
+ (optional=templinst|arch=ppc64el)_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EERS4_@Base 6.2.2
+ (optional=templinst|arch=ppc64el)_ZNSt6vectorIiSaIiEE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPiS1_EE@Base 6.2.2
  (optional=templinst)_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_@Base 6.2.0
  (optional=templinst)_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE24_M_get_insert_unique_posERS2_@Base 6.2.0
  (optional=templinst)_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS2_@Base 6.2.0
  (optional=templinst)_ZNSt8_Rb_treeI7QStringSt4pairIKS0_N13QQmlDirParser6ScriptEESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_@Base 6.2.0
  (optional=templinst)_ZNSt8_Rb_treeI7QStringSt4pairIKS0_N13QQmlDirParser6ScriptEESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS2_@Base 6.2.0
- (optional=templinst)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_@Base 6.2.0
+ (optional=templinst|arch=!ppc64el)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_@Base 6.2.0
  (optional=templinst)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_@Base 6.2.0
  _ZTI10QQmlEngine@Base 6.2.0
  _ZTI11QQmlBinding@Base 6.2.0
