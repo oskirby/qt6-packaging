@@ -1,0 +1,20 @@
+qt6-charts (6.2.2-1) experimental; urgency=medium
+
+  [ Lu YaNing ]
+  * Fix d/copyright Upstream-Name.
+  * List cmake files in detail.
+  * Update descriptions.
+  * Update symbols.
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Bump Qt B-Ds to 6.2.2.
+  * Update installed files.
+
+ -- Patrick Franz <deltaone@debian.org>  Fri, 03 Dec 2021 17:13:38 +0100
+
+qt6-charts (6.2.1-1) experimental; urgency=medium
+
+  * Initial release (Closes: #999630)
+
+ -- Patrick Franz <deltaone@debian.org>  Sun, 14 Nov 2021 22:54:22 +0100
