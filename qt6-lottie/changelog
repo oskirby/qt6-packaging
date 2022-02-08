@@ -1,0 +1,17 @@
+qt6-lottie (6.2.2-1) experimental; urgency=medium
+
+  [ Lu YaNing ]
+  * Update descriptions.
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Bump Qt B-Ds to 6.2.2.
+  * Update installed files.
+
+ -- Patrick Franz <deltaone@debian.org>  Fri, 03 Dec 2021 16:20:02 +0100
+
+qt6-lottie (6.2.1-1) experimental; urgency=medium
+
+  * Initial release (Closes: #999687)
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 15 Nov 2021 00:24:43 +0100
