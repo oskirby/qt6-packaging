@@ -1,0 +1,4 @@
+# Fixes QTBUG-100125 shader compilation error on s390x
+qtbug-100125-fix-encoding-of-string-literals-for-be.patch
+qtbug-100125-interm-out-isnan-isinfinity.patch
+qtbug-100125-tintermediate-promote-constant-union.patch
