@@ -1,3 +1,10 @@
+qt6-imageformats (6.2.2-1+impish3) impish; urgency=medium
+
+  * Disable LTO and update B-D for Ubuntu
+  * Disable dh_dwz on Ubuntu/focal for arm64
+
+ -- Owen Kirby <okirby@mozilla.com>  Tue, 08 Feb 2022 19:07:50 -0800
+
 qt6-imageformats (6.2.2-1) experimental; urgency=medium
 
   [ Patrick Franz ]
