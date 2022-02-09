@@ -1,0 +1,21 @@
+qt6-imageformats (6.2.2-1) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Bump Qt B-Ds to 6.2.2.
+  * Update description.
+
+ -- Patrick Franz <deltaone@debian.org>  Thu, 02 Dec 2021 09:36:51 +0100
+
+qt6-imageformats (6.2.1-2) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * Source-only upload to experimental.
+
+ -- Patrick Franz <deltaone@debian.org>  Sun, 21 Nov 2021 01:56:56 +0100
+
+qt6-imageformats (6.2.1-1) experimental; urgency=medium
+
+  * Initial release (Closes: #998332)
+
+ -- Patrick Franz <deltaone@debian.org>  Tue, 02 Nov 2021 16:55:14 +0100

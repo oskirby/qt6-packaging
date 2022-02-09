@@ -1,0 +1,32 @@
+Source: qt6-imageformats
+Section: libs
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Patrick Franz <deltaone@debian.org>
+Build-Depends: cmake (>= 3.18~),
+               debhelper-compat (= 13),
+               libgl-dev,
+               libmng-dev,
+               libqt6opengl6-dev (>= 6.2.2+dfsg~),
+               libtiff-dev,
+               libwebp-dev,
+               ninja-build,
+               pkg-config,
+               qt6-base-dev (>= 6.2.2+dfsg~),
+               qt6-base-private-dev (>= 6.2.2+dfsg~),
+Standards-Version: 4.6.0
+Homepage: https://www.qt.io/developers/
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/qt-kde-team/qt6/qt6-imageformats.git
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/qt6/qt6-imageformats
+
+Package: qt6-image-formats-plugins
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Qt 6 Image Formats plugins
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains plugins for adding support for ICNS, MNG, TGA, TIFF,
+ WBMP and WEBP image formats.
