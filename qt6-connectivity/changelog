@@ -1,0 +1,18 @@
+qt6-connectivity (6.2.2-1) experimental; urgency=medium
+
+  [ Lu YaNing ]
+  * Update descriptions.
+  * Update symbols.
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Bump Qt B-Ds to 6.2.2.
+  * Update installed files.
+
+ -- Patrick Franz <deltaone@debian.org>  Fri, 03 Dec 2021 16:55:23 +0100
+
+qt6-connectivity (6.2.1-1) experimental; urgency=medium
+
+  * Initial release (Closes: #999633)
+
+ -- Patrick Franz <deltaone@debian.org>  Sun, 14 Nov 2021 22:58:10 +0100
