@@ -1,0 +1,2 @@
+usr/include/${DEB_HOST_MULTIARCH}/qt6/QtNetworkAuth/6.*
+usr/lib/${DEB_HOST_MULTIARCH}/qt6/mkspecs/modules/qt_lib_networkauth_private.pri
