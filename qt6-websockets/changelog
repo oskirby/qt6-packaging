@@ -1,0 +1,21 @@
+qt6-websockets (6.2.2-2) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * Update symbols from buildlogs.
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 06 Dec 2021 02:17:32 +0100
+
+qt6-websockets (6.2.2-1) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Bump Qt B-Ds to 6.2.2.
+  * Update installed files.
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 06 Dec 2021 00:48:34 +0100
+
+qt6-websockets (6.2.1-1) experimental; urgency=medium
+
+  * Initial release (Closes: #1000167)
+
+ -- Patrick Franz <deltaone@debian.org>  Wed, 24 Nov 2021 13:40:44 +0100

@@ -1,0 +1,3 @@
+usr/lib/${DEB_HOST_MULTIARCH}/qt6/qml/QtWebSockets/libqmlwebsocketsplugin.so
+usr/lib/${DEB_HOST_MULTIARCH}/qt6/qml/QtWebSockets/plugins.qmltypes
+usr/lib/${DEB_HOST_MULTIARCH}/qt6/qml/QtWebSockets/qmldir
