@@ -92,8 +92,8 @@ libQt6SerialPort.so.6 libqt6serialport6 #MINVER#
  _ZNK15QSerialPortInfo19hasVendorIdentifierEv@Base 6.2.1
  _ZNK15QSerialPortInfo20hasProductIdentifierEv@Base 6.2.1
  _ZNK15QSerialPortInfo8portNameEv@Base 6.2.1
- (optional=templinst)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_@Base 6.2.1
- (optional=templinst)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_@Base 6.2.1
+ (optional=templinst|arch=!ppc64el)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_@Base 6.2.1
+ (optional=templinst|arch=!armhf !s390x)_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_@Base 6.2.1
  _ZTI11QSerialPort@Base 6.2.1
  _ZTS11QSerialPort@Base 6.2.1
  _ZTV11QSerialPort@Base 6.2.1

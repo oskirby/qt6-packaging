@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 include /usr/share/dpkg/architecture.mk
 
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
 export LLVM_INSTALL_DIR := $(shell llvm-config --prefix)
 

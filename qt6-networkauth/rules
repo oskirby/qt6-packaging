@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 include /usr/share/dpkg/architecture.mk
 
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
 %:
 	dh $@ --buildsystem=cmake+ninja --with pkgkde_symbolshelper
