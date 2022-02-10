@@ -1,0 +1,25 @@
+qt6-sensors (6.2.2-2) experimental; urgency=medium
+
+  * Team upload.
+  * Fix build on non-Linux architectures:
+    - add the dh-exec build dependency, needed for architecture filters in
+      .install files
+    - make libqt6sensors6.install, and libqt6sensors6-dev.install use dh-exec,
+      and limit installation of Linux-only files
+
+ -- Pino Toscano <pino@debian.org>  Mon, 31 Jan 2022 20:27:36 +0100
+
+qt6-sensors (6.2.2-1) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * New upstream release (6.2.2).
+  * Bump Qt B-Ds to 6.2.2.
+  * Update installed files.
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 06 Dec 2021 08:29:41 +0100
+
+qt6-sensors (6.2.1-1) experimental; urgency=medium
+
+  * Initial release (Closes: #999894)
+
+ -- Patrick Franz <deltaone@debian.org>  Thu, 18 Nov 2021 08:38:54 +0100
