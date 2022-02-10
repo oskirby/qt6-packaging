@@ -1,0 +1,12 @@
+qt6-positioning (6.2.2-2) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * Update symbols from buildlogs.
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 06 Dec 2021 00:32:37 +0100
+
+qt6-positioning (6.2.2-1) experimental; urgency=medium
+
+  * Initial release (Closes: #999636)
+
+ -- Patrick Franz <deltaone@debian.org>  Sun, 14 Nov 2021 23:12:17 +0100
