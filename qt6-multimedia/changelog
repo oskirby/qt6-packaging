@@ -1,0 +1,12 @@
+qt6-multimedia (6.2.2-2) experimental; urgency=medium
+
+  [ Patrick Franz ]
+  * Update symbols from buildlogs.
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 27 Dec 2021 16:22:15 +0100
+
+qt6-multimedia (6.2.2-1) experimental; urgency=medium
+
+  * Initial release (Closes: #999690)
+
+ -- Patrick Franz <deltaone@debian.org>  Mon, 15 Nov 2021 00:39:03 +0100
