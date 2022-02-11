@@ -1,4 +1,4 @@
-qt6-declarative (6.2.2+dfsg-3+impish4) impish; urgency=medium
+qt6-declarative (6.2.2+dfsg-3+impish6) impish; urgency=medium
 
   * Disable LTO and update symbols for Ubuntu
 
