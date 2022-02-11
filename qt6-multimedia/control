@@ -3,7 +3,7 @@ Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Patrick Franz <deltaone@debian.org>, Lu YaNing <dluyaning@gmail.com>
-Build-Depends: cmake (>= 3.18~),
+Build-Depends: cmake (>= 3.16~),
                debhelper-compat (= 13),
                libasound2-dev [linux-any],
                libgl-dev,
@@ -14,6 +14,7 @@ Build-Depends: cmake (>= 3.18~),
                libqt6svg6-dev (>= 6.2.2~),
                libssl-dev,
                libvulkan-dev [linux-any],
+               libwayland-dev,
                ninja-build,
                pkg-config,
                pkg-kde-tools,

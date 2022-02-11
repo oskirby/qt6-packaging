@@ -1,3 +1,9 @@
+qt6-translations (6.2.2-2+impish1) impish; urgency=medium
+
+  * Update build for Ubuntu
+
+ -- Owen Kirby <okirby@mozilla.com>  Wed, 09 Feb 2022 21:58:18 -0800
+
 qt6-translations (6.2.2-2) experimental; urgency=medium
 
   [ Patrick Franz ]
