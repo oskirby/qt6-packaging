@@ -220,8 +220,7 @@ libQt6QuickDialogs2QuickImpl.so.6 libqt6quickdialogs2quickimpl6 #MINVER#
  _ZNK28QQuickFontDialogImplAttached9styleEditEv@Base 6.2.0
  _ZNK32QQuickFolderBreadcrumbBarPrivate15getContentWidthEv@Base 6.2.0
  _ZNK32QQuickFolderBreadcrumbBarPrivate16getContentHeightEv@Base 6.2.0
- (optional=templinst)_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE24_M_get_insert_unique_posERS2_@Base 6.2.0
- (optional=templinst|arch=!armel !armhf !hurd-i386 !i386 !mipsel !s390x)_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS2_@Base 6.2.0
+ (optional=templinst|regex)"^_ZNSt8_Rb_treeI.*@Base$" 6.2.0
  _ZTI20QQuickFileDialogImpl@Base 6.2.0
  _ZTI20QQuickFontDialogImpl@Base 6.2.0
  _ZTI24QQuickFileDialogDelegate@Base 6.2.0
@@ -249,21 +248,7 @@ libQt6QuickDialogs2QuickImpl.so.6 libqt6quickdialogs2quickimpl6 #MINVER#
  _ZTV28QQuickFileDialogImplAttached@Base 6.2.0
  _ZTV28QQuickFontDialogImplAttached@Base 6.2.0
  _ZTV32QQuickFolderBreadcrumbBarPrivate@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceEPvPKvE_4_FUNES5_S6_S8_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceEPvS6_E_4_FUNES5_S6_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES5_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE7getDtorEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES5_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI5QListI7QStringEE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceEPvPKvE_4_FUNES7_S8_SA_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI5QListI7QStringEE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceEPvS8_E_4_FUNES7_S8_S8_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI5QListI7QStringEE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES7_S8_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI5QListI7QStringEE7getDtorEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES7_S8_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI7QStringE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceEPvPKvE_4_FUNES5_S6_S8_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI7QStringE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceEPvS6_E_4_FUNES5_S6_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI7QStringE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES5_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI7QStringE7getDtorEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES5_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeIiE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceEPvPKvE_4_FUNES4_S5_S7_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeIiE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceEPvS5_E_4_FUNES4_S5_S5_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeIiE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES4_S5_@Base 6.2.0
+ (optional=templinst|regex)"^_ZZN9QtPrivate16QMetaTypeForTypeI.*@Base$" 6.2.0
  (c++)"non-virtual thunk to QQuickFileDialogImpl::componentComplete()@Base" 6.2.0
  (c++)"non-virtual thunk to QQuickFolderBreadcrumbBar::componentComplete()@Base" 6.2.0
  (c++)"non-virtual thunk to QQuickFolderBreadcrumbBarPrivate::itemGeometryChanged(QQuickItem*, QQuickGeometryChange, QRectF const&)@Base" 6.2.0

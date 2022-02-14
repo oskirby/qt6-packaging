@@ -1,8 +1,8 @@
-qt6-websockets (6.2.2-2+impish2) impish; urgency=medium
+qt6-websockets (6.2.2-2+impish3) impish; urgency=medium
 
   * Disable LTO, update symbols and build for Ubuntu
 
- -- Owen Kirby <okirby@mozilla.com>  Wed, 09 Feb 2022 19:10:50 -0800
+ -- Owen Kirby <okirby@mozilla.com>  Mon, 14 Feb 2022 11:36:58 -0800
 
 qt6-websockets (6.2.2-2) experimental; urgency=medium
 

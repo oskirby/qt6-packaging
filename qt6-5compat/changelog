@@ -1,8 +1,8 @@
-qt6-5compat (6.2.2-4+impish2) impish; urgency=medium
+qt6-5compat (6.2.2-4+impish3) impish; urgency=medium
 
-  * Disable LTO and update build for Ubuntu.
+  * Disable LTO, update symbols and build for Ubuntu.
 
- -- Owen Kirby <okirby@mozilla.com>  Thu, 10 Feb 2022 11:39:50 -0800
+ -- Owen Kirby <okirby@mozilla.com>  Mon, 14 Feb 2022 11:52:27 -0800
 
 qt6-5compat (6.2.2-4) experimental; urgency=medium
 

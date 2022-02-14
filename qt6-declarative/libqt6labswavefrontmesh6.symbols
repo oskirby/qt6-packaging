@@ -31,7 +31,4 @@ libQt6LabsWavefrontMesh.so.6 libqt6labswavefrontmesh6 #MINVER#
  _ZTI14QWavefrontMesh@Base 6.2.0
  _ZTS14QWavefrontMesh@Base 6.2.0
  _ZTV14QWavefrontMesh@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceEPvPKvE_4_FUNES5_S6_S8_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceEPvS6_E_4_FUNES5_S6_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES5_S6_@Base 6.2.0
- (optional=templinst)_ZZN9QtPrivate16QMetaTypeForTypeI4QUrlE7getDtorEvENUlPKNS_18QMetaTypeInterfaceEPvE_4_FUNES5_S6_@Base 6.2.0
+ (optional=templinst|regex)"^_ZZN9QtPrivate16QMetaTypeForTypeI.*@Base$" 6.2.0

@@ -1,8 +1,8 @@
-qt6-lottie (6.2.2-1+impish4) impish; urgency=medium
+qt6-lottie (6.2.2-1+impish5) impish; urgency=medium
 
-  * Disable LTO and update build-depends for Ubuntu.
+  * Disable LTO, update symbols and build for Ubuntu.
 
- -- Owen Kirby <okirby@mozilla.com>  Tue, 08 Feb 2022 10:25:21 -0800
+ -- Owen Kirby <okirby@mozilla.com>  Mon, 14 Feb 2022 12:41:56 -0800
 
 qt6-lottie (6.2.2-1) experimental; urgency=medium
 

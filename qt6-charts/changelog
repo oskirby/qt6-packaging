@@ -1,8 +1,8 @@
-qt6-charts (6.2.2-1+impish2) impish; urgency=medium
+qt6-charts (6.2.2-1+impish3) impish; urgency=medium
 
-  * Disable LTO and update symbols for Ubuntu
+  * Disable LTO, update symbols and build for Ubuntu
 
- -- Owen Kirby <okirby@mozilla.com>  Tue, 08 Feb 2022 10:04:01 -0800
+ -- Owen Kirby <okirby@mozilla.com>  Mon, 14 Feb 2022 11:13:50 -0800
 
 qt6-charts (6.2.2-1) experimental; urgency=medium
 

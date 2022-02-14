@@ -1,8 +1,8 @@
-qt6-svg (6.2.2-1+impish3) impish; urgency=medium
+qt6-svg (6.2.2-1+impish4) impish; urgency=medium
 
   * Disable LTO, update symbols and build for Ubuntu.
 
- -- Owen Kirby <okirby@mozilla.com>  Wed, 09 Feb 2022 18:31:11 -0800
+ -- Owen Kirby <okirby@mozilla.com>  Fri, 11 Feb 2022 14:27:11 -0800
 
 qt6-svg (6.2.2-1) experimental; urgency=medium
 
