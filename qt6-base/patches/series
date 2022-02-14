@@ -5,6 +5,11 @@ upstream_QStorageInfo-limit-Linux-only-code-with-Q_OS_LINUX.patch
 upstream_CMake-add-support-for-GNU-Hurd.patch
 upstream_QProcess-Unix-fallback-on-_POSIX_PIPE_BUF-w-missing-.patch
 
+# Build fixes for GCC < 8.0
+qtbug-95646-qobjectcompatproperty-compile.patch
+qtbug-96657-qregularexpression-lambda-error.patch
+qtbug-96658-qdatetime-compile.patch
+
 # Debian specific
 remove_privacy_breaches.diff
 path_max.diff

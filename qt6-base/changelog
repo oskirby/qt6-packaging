@@ -1,4 +1,4 @@
-qt6-base (6.2.2+dfsg-3impish15) impish; urgency=medium
+qt6-base (6.2.2+dfsg-3+bionic2) bionic; urgency=medium
 
   * Disable LTO optimizations for Ubuntu
   * Update shlib symbols
