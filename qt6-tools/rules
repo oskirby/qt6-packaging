@@ -3,7 +3,12 @@ include /usr/share/dpkg/architecture.mk
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
-export LLVM_INSTALL_DIR := $(shell llvm-config --prefix)
+LLVM_NATIVE_VERSION := $(shell llvm-config --version 2>/dev/null || echo 0)
+ifeq (ok,$(dpkg --compare-versions $(LLVM_NATIVE_VERSION) ge 10 && echo ok))
+	export LLVM_INSTALL_DIR := $(shell llvm-config --prefix)
+else
+	export LLVM_INSTALL_DIR := $(shell llvm-config-10 --prefix)
+endif
 
 %:
 	dh $@ --with pkgkde_symbolshelper --buildsystem=cmake+ninja

@@ -3,7 +3,7 @@ Section: localization
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Patrick Franz <deltaone@debian.org>
-Build-Depends: cmake (>= 3.16~),
+Build-Depends: cmake (>= 3.16~) | cmake-mozilla (>= 3.16~),
                debhelper-compat (= 13),
                ninja-build,
                pkg-config,

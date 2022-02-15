@@ -3,17 +3,17 @@ Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Patrick Franz <deltaone@debian.org>
-Build-Depends: clang (>= 1:10~),
-               cmake (>= 3.16~),
+Build-Depends: clang (>= 1:10~) | clang-10,
+               cmake (>= 3.16~) | cmake-mozilla (>= 3.16~),
                debhelper-compat (= 13),
-               libclang-dev (>= 1:10~),
+               libclang-dev (>= 1:10~) | libclang-10-dev,
                libgl-dev,
                liblitehtml-dev,
                libqt6opengl6-dev (>= 6.2.2+dfsg~),
                libssl-dev,
                libvulkan-dev [linux-any],
                libxcb-xkb-dev,
-               llvm-dev (>= 1:10~),
+               llvm-dev (>= 1:10~) | llvm-10-dev,
                ninja-build,
                pkg-config,
                pkg-kde-tools,
