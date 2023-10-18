@@ -1,3 +1,13 @@
+cmake (3.18.4-2~bpo20.04.1) focal; urgency=medium
+
+  * Backport to Ubuntu/focal
+  * Backport CMake imported targets GTest::gmock and GTest::gmock_main.
+    (LP: #1986665)
+  * Cherry-pick from upstream: Explicitly allow use of git file-based protocol
+    in test cases (Kitware merge request 7812)
+
+ -- Naomi Kirby <nkirby@mozilla.com>  Tue, 17 Oct 2023 23:00:00 -0700
+
 cmake (3.18.4-2+deb11u1) bullseye; urgency=medium
 
   * Team upload.

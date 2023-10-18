@@ -1,7 +1,8 @@
 Source: cmake
 Section: devel
 Priority: optional
-Maintainer: Debian CMake Team <pkg-cmake-team@lists.alioth.debian.org>
+Maintainer: Naomi Kirby <nkirby@mozilla.com>
+XSBC-Original-Maintainer: Debian CMake Team <pkg-cmake-team@lists.alioth.debian.org>
 Uploaders: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>,
            Felix Geyer <fgeyer@debian.org>
 Build-Depends: debhelper-compat (= 12),

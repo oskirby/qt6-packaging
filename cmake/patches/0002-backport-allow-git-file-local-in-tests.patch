@@ -1,0 +1,38 @@
+From 79ce0f434e916684d734e136b92e14f472a9d14a Mon Sep 17 00:00:00 2001
+From: Brad King <brad.king@kitware.com>
+Date: Thu, 20 Oct 2022 13:38:20 -0400
+Subject: [PATCH] Tests: Explicitly allow usage of git file-based protocol in
+ test cases
+
+Due to CVE-2022-39253, Git 2.30.6 sets `protocol.file.allow=user` by
+default.  The change has also been backported to other Git versions by
+distros.  This breaks some of our test cases that use the file-based
+protocol locally to simulate real workflows without requiring network
+access.  In these cases the file protocol is safe, so explicitly enable
+it in the tests.
+---
+ Tests/CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Tests/CMakeLists.txt b/Tests/CMakeLists.txt
+index 24e98f4923e..3e400c2f36b 100644
+--- a/Tests/CMakeLists.txt
++++ b/Tests/CMakeLists.txt
+@@ -1574,6 +1574,7 @@ if(BUILD_TESTING)
+     )
+   list(APPEND TEST_BUILD_DIRS "${CMake_BINARY_DIR}/Tests/ExternalProject")
+   set_tests_properties(ExternalProject PROPERTIES
++    ENVIRONMENT GIT_ALLOW_PROTOCOL=file
+     RUN_SERIAL 1
+     TIMEOUT ${CMAKE_LONG_TEST_TIMEOUT})
+ 
+@@ -2656,6 +2657,7 @@ if(BUILD_TESTING)
+         -P "${CMake_BINARY_DIR}/Tests/CTestUpdateGIT.cmake"
+         )
+       list(APPEND TEST_BUILD_DIRS "${CMake_BINARY_DIR}/Tests/${CTestUpdateGIT_DIR}")
++      set_property(TEST CTest.UpdateGIT PROPERTY ENVIRONMENT GIT_ALLOW_PROTOCOL=file)
+     endif()
+ 
+     # Test CTest Update with HG
+-- 
+GitLab

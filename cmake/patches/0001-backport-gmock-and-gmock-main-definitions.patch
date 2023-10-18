@@ -1,0 +1,249 @@
+Description: Backport `GTest::gmock` and `GTest::gmock_main` target definitions
+ Googletest has provided the imported targets
+ `GTest::gmock` and `GTest::gmock_main` since version 1.8.1.
+ The CMake FindGTest module forwards calls to the config file package
+ if that is present and falls back to the FindGTest.cmake module
+ definitions in Debian and Ubuntu where the config file package is not 
+ included. Backport the imported targets defined by GoogleTest project
+ to the FindGTest.cmake module.
+
+Author: Eero Aaltonen <eero.aaltonen@vaisala.com>
+Bug: https://gitlab.kitware.com/cmake/cmake/-/issues/17365
+Bug-Ubuntu: https://bugs.launchpad.net/bugs/1986665
+Forwarded: https://gitlab.kitware.com/cmake/cmake/-/merge_requests/6632
+Last-Update: 2022-09-27
+
+---
+ .../dev/FindGTest-target-for-gmock.rst        |   4 +
+ Modules/FindGTest.cmake                       | 140 +++++++++++++++---
+ Tests/FindGTest/Test/CMakeLists.txt           |   4 +
+ 3 files changed, 127 insertions(+), 21 deletions(-)
+ create mode 100644 Help/release/dev/FindGTest-target-for-gmock.rst
+
+diff --git a/Help/release/dev/FindGTest-target-for-gmock.rst b/Help/release/dev/FindGTest-target-for-gmock.rst
+new file mode 100644
+index 0000000000..f78242c80e
+--- /dev/null
++++ b/Help/release/dev/FindGTest-target-for-gmock.rst
+@@ -0,0 +1,4 @@
++FindGTest-target-for-gmock
++--------------------------
++
++* The :module:`FindGTest` module now provides a target for GMock, if found.
+diff --git a/Modules/FindGTest.cmake b/Modules/FindGTest.cmake
+index e015a9840f..b7c33c62a1 100644
+--- a/Modules/FindGTest.cmake
++++ b/Modules/FindGTest.cmake
+@@ -7,10 +7,22 @@ FindGTest
+ 
+ Locate the Google C++ Testing Framework.
+ 
++.. versionadded:: 3.16.3-1ubuntu1.20.04.1
++  Upstream ``GTestConfig.cmake`` is used if possible.
++
+ Imported targets
+ ^^^^^^^^^^^^^^^^
+ 
+-This module defines the following :prop_tgt:`IMPORTED` targets:
++  This module defines the following :prop_tgt:`IMPORTED` targets:
++
++``GTest::gtest``
++  The Google Test ``gtest`` library, if found; adds Thread::Thread
++  automatically
++``GTest::gtest_main``
++  The Google Test ``gtest_main`` library, if found
++
++  For backwards compatibility, this module defines additionally the
++  following deprecated :prop_tgt:`IMPORTED` targets (available since 3.5):
+ 
+ ``GTest::GTest``
+   The Google Test ``gtest`` library, if found; adds Thread::Thread
+@@ -18,7 +30,6 @@ This module defines the following :prop_tgt:`IMPORTED` targets:
+ ``GTest::Main``
+   The Google Test ``gtest_main`` library, if found
+ 
+-
+ Result variables
+ ^^^^^^^^^^^^^^^^
+ 
+@@ -146,7 +157,47 @@ function(__gtest_import_library _target _var _config)
+     endif()
+ endfunction()
+ 
+-#
++function(__gtest_define_backwards_compatible_library_targets)
++    set(GTEST_BOTH_LIBRARIES ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} PARENT_SCOPE)
++
++    # Add targets mapping the same library names as defined in
++    # older versions of CMake's FindGTest
++    if(NOT TARGET GTest::GTest)
++        add_library(GTest::GTest INTERFACE IMPORTED)
++        target_link_libraries(GTest::GTest INTERFACE GTest::gtest)
++    endif()
++    if(NOT TARGET GTest::Main)
++        add_library(GTest::Main INTERFACE IMPORTED)
++        target_link_libraries(GTest::Main INTERFACE GTest::gtest_main)
++    endif()
++endfunction()
++
++include(${CMAKE_CURRENT_LIST_DIR}/FindPackageHandleStandardArgs.cmake)
++
++# first specifically look for the CMake version of GTest
++find_package(GTest QUIET NO_MODULE)
++
++# if we found the GTest cmake package then we are done, and
++# can print what we found and return.
++if(GTest_FOUND)
++    set(GTEST_FOUND ${GTest_FOUND})
++    FIND_PACKAGE_HANDLE_STANDARD_ARGS(GTest HANDLE_COMPONENTS CONFIG_MODE)
++
++    set(GTEST_LIBRARIES      GTest::gtest)
++    set(GTEST_MAIN_LIBRARIES GTest::gtest_main)
++
++    __gtest_define_backwards_compatible_library_targets()
++
++    # Define (undocumented) backwards compatible variables
++    set(GTEST_LIBRARY      GTest::gtest)
++    set(GTEST_MAIN_LIBRARY GTest::gtest_main)
++    if(TARGET GTest::gmock)
++      set(GMOCK_LIBRARY      GTest::gmock)
++      set(GMOCK_MAIN_LIBRARY GTest::gmock)
++    endif()
++
++    return()
++endif()
+ 
+ if(NOT DEFINED GTEST_MSVC_SEARCH)
+     set(GTEST_MSVC_SEARCH MD)
+@@ -194,51 +245,98 @@ if(MSVC AND GTEST_MSVC_SEARCH STREQUAL "MD")
+     __gtest_find_library(GTEST_LIBRARY_DEBUG      gtest-mdd gtestd)
+     __gtest_find_library(GTEST_MAIN_LIBRARY       gtest_main-md  gtest_main)
+     __gtest_find_library(GTEST_MAIN_LIBRARY_DEBUG gtest_main-mdd gtest_maind)
++    __gtest_find_library(GMOCK_LIBRARY            gmock-md  gmock)
++    __gtest_find_library(GMOCK_LIBRARY_DEBUG      gmock-mdd gmockd)
++    __gtest_find_library(GMOCK_MAIN_LIBRARY       gmock_main-md  gmock_main)
++    __gtest_find_library(GMOCK_MAIN_LIBRARY_DEBUG gmock_main-mdd gmock_maind)
+ else()
+     __gtest_find_library(GTEST_LIBRARY            gtest)
+     __gtest_find_library(GTEST_LIBRARY_DEBUG      gtestd)
+     __gtest_find_library(GTEST_MAIN_LIBRARY       gtest_main)
+     __gtest_find_library(GTEST_MAIN_LIBRARY_DEBUG gtest_maind)
++    __gtest_find_library(GMOCK_LIBRARY            gmock)
++    __gtest_find_library(GMOCK_LIBRARY_DEBUG      gmockd)
++    __gtest_find_library(GMOCK_MAIN_LIBRARY       gmock_main)
++    __gtest_find_library(GMOCK_MAIN_LIBRARY_DEBUG gmock_maind)
+ endif()
+ 
+-include(${CMAKE_CURRENT_LIST_DIR}/FindPackageHandleStandardArgs.cmake)
+ FIND_PACKAGE_HANDLE_STANDARD_ARGS(GTest DEFAULT_MSG GTEST_LIBRARY GTEST_INCLUDE_DIR GTEST_MAIN_LIBRARY)
+ 
+-if(GTEST_FOUND)
++if(GMOCK_LIBRARY AND GMOCK_MAIN_LIBRARY)
++    set(GMock_FOUND True)
++else()
++    set(GMock_FOUND False)
++endif()
++
++if(GTest_FOUND)
+     set(GTEST_INCLUDE_DIRS ${GTEST_INCLUDE_DIR})
+     __gtest_append_debugs(GTEST_LIBRARIES      GTEST_LIBRARY)
+     __gtest_append_debugs(GTEST_MAIN_LIBRARIES GTEST_MAIN_LIBRARY)
+-    set(GTEST_BOTH_LIBRARIES ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES})
+ 
+     find_package(Threads QUIET)
+ 
+-    if(NOT TARGET GTest::GTest)
++    if(NOT TARGET GTest::gtest)
+         __gtest_determine_library_type(GTEST_LIBRARY)
+-        add_library(GTest::GTest ${GTEST_LIBRARY_TYPE} IMPORTED)
++        add_library(GTest::gtest ${GTEST_LIBRARY_TYPE} IMPORTED)
+         if(TARGET Threads::Threads)
+-            set_target_properties(GTest::GTest PROPERTIES
++            set_target_properties(GTest::gtest PROPERTIES
+                 INTERFACE_LINK_LIBRARIES Threads::Threads)
+         endif()
+         if(GTEST_LIBRARY_TYPE STREQUAL "SHARED")
+-            set_target_properties(GTest::GTest PROPERTIES
++            set_target_properties(GTest::gtest PROPERTIES
+                 INTERFACE_COMPILE_DEFINITIONS "GTEST_LINKED_AS_SHARED_LIBRARY=1")
+         endif()
+         if(GTEST_INCLUDE_DIRS)
+-            set_target_properties(GTest::GTest PROPERTIES
++            set_target_properties(GTest::gtest PROPERTIES
+                 INTERFACE_INCLUDE_DIRECTORIES "${GTEST_INCLUDE_DIRS}")
+         endif()
+-        __gtest_import_library(GTest::GTest GTEST_LIBRARY "")
+-        __gtest_import_library(GTest::GTest GTEST_LIBRARY "RELEASE")
+-        __gtest_import_library(GTest::GTest GTEST_LIBRARY "DEBUG")
++        __gtest_import_library(GTest::gtest GTEST_LIBRARY "")
++        __gtest_import_library(GTest::gtest GTEST_LIBRARY "RELEASE")
++        __gtest_import_library(GTest::gtest GTEST_LIBRARY "DEBUG")
+     endif()
+-    if(NOT TARGET GTest::Main)
++    if(NOT TARGET GTest::gtest_main)
+         __gtest_determine_library_type(GTEST_MAIN_LIBRARY)
+-        add_library(GTest::Main ${GTEST_MAIN_LIBRARY_TYPE} IMPORTED)
+-        set_target_properties(GTest::Main PROPERTIES
+-            INTERFACE_LINK_LIBRARIES "GTest::GTest")
+-        __gtest_import_library(GTest::Main GTEST_MAIN_LIBRARY "")
+-        __gtest_import_library(GTest::Main GTEST_MAIN_LIBRARY "RELEASE")
+-        __gtest_import_library(GTest::Main GTEST_MAIN_LIBRARY "DEBUG")
++        add_library(GTest::gtest_main ${GTEST_MAIN_LIBRARY_TYPE} IMPORTED)
++        set_target_properties(GTest::gtest_main PROPERTIES
++            INTERFACE_LINK_LIBRARIES "GTest::gtest")
++        __gtest_import_library(GTest::gtest_main GTEST_MAIN_LIBRARY "")
++        __gtest_import_library(GTest::gtest_main GTEST_MAIN_LIBRARY "RELEASE")
++        __gtest_import_library(GTest::gtest_main GTEST_MAIN_LIBRARY "DEBUG")
++    endif()
++
++    __gtest_define_backwards_compatible_library_targets()
++endif()
++
++if(GMock_FOUND)
++    if(NOT TARGET GTest::gmock)
++        __gtest_determine_library_type(GMOCK_LIBRARY)
++        add_library(GTest::gmock ${GMOCK_LIBRARY_TYPE} IMPORTED)
++        set(_gmock_link_libraries "GTest::gtest")
++        if(TARGET Threads::Threads)
++            list(APPEND _gmock_link_libraries Threads::Threads)
++        endif()
++        set_target_properties(GTest::gmock PROPERTIES
++            INTERFACE_LINK_LIBRARIES "${_gmock_link_libraries}")
++        if(GMOCK_LIBRARY_TYPE STREQUAL "SHARED")
++            set_target_properties(GTest::gmock PROPERTIES
++                INTERFACE_COMPILE_DEFINITIONS "GMOCK_LINKED_AS_SHARED_LIBRARY=1")
++        endif()
++        if(GTEST_INCLUDE_DIRS)
++            set_target_properties(GTest::gmock PROPERTIES
++                INTERFACE_INCLUDE_DIRECTORIES "${GTEST_INCLUDE_DIRS}")
++        endif()
++        __gtest_import_library(GTest::gmock GMOCK_LIBRARY "")
++        __gtest_import_library(GTest::gmock GMOCK_LIBRARY "RELEASE")
++        __gtest_import_library(GTest::gmock GMOCK_LIBRARY "DEBUG")
++    endif()
++    if(NOT TARGET GTest::gmock_main)
++        __gtest_determine_library_type(GMOCK_MAIN_LIBRARY)
++        add_library(GTest::gmock_main ${GMOCK_MAIN_LIBRARY_TYPE} IMPORTED)
++        set_target_properties(GTest::gmock_main PROPERTIES
++            INTERFACE_LINK_LIBRARIES "GTest::gmock")
++        __gtest_import_library(GTest::gmock_main GMOCK_MAIN_LIBRARY "")
++        __gtest_import_library(GTest::gmock_main GMOCK_MAIN_LIBRARY "RELEASE")
++        __gtest_import_library(GTest::gmock_main GMOCK_MAIN_LIBRARY "DEBUG")
+     endif()
+ 
+     # Add targets mapping the same library names as defined in
+diff --git a/Tests/FindGTest/Test/CMakeLists.txt b/Tests/FindGTest/Test/CMakeLists.txt
+index b65b9d28f6..7d3a378a65 100644
+--- a/Tests/FindGTest/Test/CMakeLists.txt
++++ b/Tests/FindGTest/Test/CMakeLists.txt
+@@ -12,3 +12,7 @@ add_executable(test_gtest_var main.cxx)
+ target_include_directories(test_gtest_var PRIVATE ${GTEST_INCLUDE_DIRS})
+ target_link_libraries(test_gtest_var PRIVATE ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+ add_test(NAME test_gtest_var COMMAND test_gtest_var)
++
++add_executable(test_gmock_tgt main.cxx)
++target_link_libraries(test_gmock_tgt GTest::gmock_main)
++add_test(NAME test_gmock_tgt COMMAND test_gmock_tgt)
+-- 
+2.25.1
+
