@@ -1,5 +1,4 @@
-disable_fileapi_json_extra_test.patch
-Compile_with_FILE_OFFSET_BITS_64_on_32-bit_Linux.patch
-add_postgresql_13_to_known_versions.patch
-0001-backport-gmock-and-gmock-main-definitions.patch
-0002-backport-allow-git-file-local-in-tests.patch
+0001-Prefer-Debian-default-version-of-Python.patch
+0002-Fix-check_symbol_exists-with-pedantic-errors.patch
+riscv64-atomic.patch
+backport-gmock-and-gmock-main-definitions.patch
