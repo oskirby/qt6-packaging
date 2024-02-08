@@ -1,3 +1,12 @@
+cmake (3.22.1-1ubuntu1~bpo20.04.1) focal; urgency=medium
+
+  * Backport to Ubuntu/focal
+  * Restore disable_fileapi_json_extra_test.patch
+  * Cherry-pick from upstream: Explicitly allow use of git file-based protocol
+    in test cases (Kitware merge request 7812)
+
+ -- Naomi Kirby <nkirby@mozilla.com>  Wed, 07 Feb 2024 17:43:10 -0800
+
 cmake (3.22.1-1ubuntu1.22.04.1) jammy; urgency=medium
 
   * Cherry pick upstream change to fix FindGTest for Gmock (LP: #1986665)

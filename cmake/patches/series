@@ -2,3 +2,5 @@
 0002-Fix-check_symbol_exists-with-pedantic-errors.patch
 riscv64-atomic.patch
 backport-gmock-and-gmock-main-definitions.patch
+backport-allow-git-file-local-in-tests.patch
+disable_fileapi_json_extra_test.patch
