@@ -1,7 +1,7 @@
 Source: cmake
 Section: devel
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Naomi Kirby <nkirby@mozilla.com>
 XSBC-Original-Maintainer: Debian CMake Team <pkg-cmake-team@lists.alioth.debian.org>
 Uploaders: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>,
            Felix Geyer <fgeyer@debian.org>,
@@ -19,7 +19,7 @@ Build-Depends: debhelper-compat (= 13),
                libuv1-dev (>= 1.10) <!pkg.cmake.bootstrap>,
                procps [!hurd-any],
                python3-sphinx:native,
-               python3-sphinxcontrib.qthelp:native,
+               python3-sphinxcontrib.qthelp:native | python3-sphinx:native (<< 2.0),
                qtbase5-dev <!pkg.cmake.bootstrap !pkg.cmake.nogui>,
                zlib1g-dev <!pkg.cmake.bootstrap>
 Build-Depends-Indep:
